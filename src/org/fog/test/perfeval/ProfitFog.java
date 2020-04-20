@@ -28,6 +28,7 @@ import org.fog.entities.Tuple;
 import org.fog.placement.Controller;
 import org.fog.placement.ModuleMapping;
 import org.fog.placement.ModulePlacementEdgewards;
+import org.fog.placement.ProfitPlacement;
 import org.fog.policy.AppModuleAllocationPolicy;
 import org.fog.scheduler.StreamOperatorScheduler;
 import org.fog.utils.FogLinearPowerModel;
@@ -45,7 +46,6 @@ public class ProfitFog {
 
     static int numOfDepth = 1;
     static int numOFMobiles = 4;
-    static double EEG_TRANSMISSION_TIME = 5.1;
 
     private static FogDevice createFogDevice(String nodeName , long mips , int ram , long upBw , long downBw , int level , double ratePerMips , double busyPower , double idlePower) {
         List<Pe> peList = new ArrayList<>();
@@ -114,18 +114,18 @@ public class ProfitFog {
     private static void createFogDevices(int userId , String appId) throws Exception {
         FogDevice cloud = createFogDevice("cloud", 193 , 40000 , 845 , 845 , 0 , 0.01 , 38.6 , 38.6);
         cloud.setParentId(-1);//云属于最上层
-        FogDevice proxy = createFogDevice("proxy-server", 162, 4000, 820, 820, 1, 0.0, 36, 36);
+        FogDevice proxy = createFogDevice("proxy-server", 162, 4000, 820, 820, 0, 0.0, 36, 36);
         //云代理
         proxy.setParentId(cloud.getId());
         proxy.setUplinkLatency(0);//单位ms
         fogDevices.add(cloud);
         fogDevices.add(proxy);
 
-        FogDevice instance1 = createFogDevice("Instance1" , 190 , 1000 , 840 , 840 , 2 , 0.0 , 38 , 38);
+        FogDevice instance1 = createFogDevice("Instance1" , 190 , 1000 , 840 , 840 , 1 , 0.0 , 38 , 38);
         instance1.setUplinkLatency(0);
         instance1.setParentId(proxy.getId());
         fogDevices.add(instance1);
-        FogDevice instance2 = createFogDevice("Instance2" , 167 , 1000 , 824 , 824 , 3 , 0.0 , 36.4 , 36.4);
+        FogDevice instance2 = createFogDevice("Instance2" , 167 , 1000 , 824 , 824 , 1 , 0.0 , 36.4 , 36.4);
         instance2.setUplinkLatency(0);
         instance2.setParentId(instance1.getId());
         fogDevices.add(instance2);
@@ -143,30 +143,7 @@ public class ProfitFog {
         application.addAppModule("client", 10); // adding module Client to the application model
         application.addAppModule("concentration_calculator", 10); // adding module Concentration Calculator to the application model
         application.addAppModule("connector", 10); // adding module Connector to the application model
-        /*
-         * Connecting the application modules (vertices) in the application model (directed graph) with edges
-         */
-        if(EEG_TRANSMISSION_TIME==10)
-            application.addAppEdge("EEG", "client", 2000, 500, "EEG", Tuple.UP, AppEdge.SENSOR); // adding edge from EEG (sensor) to Client module carrying tuples of type EEG
-        else
-            application.addAppEdge("EEG", "client", 3000, 500, "EEG", Tuple.UP, AppEdge.SENSOR);
-        application.addAppEdge("client", "concentration_calculator", 3500, 500, "_SENSOR", Tuple.UP, AppEdge.MODULE); // adding edge from Client to Concentration Calculator module carrying tuples of type _SENSOR
-        application.addAppEdge("concentration_calculator", "connector", 100, 1000, 1000, "PLAYER_GAME_STATE", Tuple.UP, AppEdge.MODULE); // adding periodic edge (period=1000ms) from Concentration Calculator to Connector module carrying tuples of type PLAYER_GAME_STATE
-        application.addAppEdge("concentration_calculator", "client", 14, 500, "CONCENTRATION", Tuple.DOWN, AppEdge.MODULE);  // adding edge from Concentration Calculator to Client module carrying tuples of type CONCENTRATION
-        application.addAppEdge("connector", "client", 100, 28, 1000, "GLOBAL_GAME_STATE", Tuple.DOWN, AppEdge.MODULE); // adding periodic edge (period=1000ms) from Connector to Client module carrying tuples of type GLOBAL_GAME_STATE
-        application.addAppEdge("client", "DISPLAY", 1000, 500, "SELF_STATE_UPDATE", Tuple.DOWN, AppEdge.ACTUATOR);  // adding edge from Client module to Display (actuator) carrying tuples of type SELF_STATE_UPDATE
-        application.addAppEdge("client", "DISPLAY", 1000, 500, "GLOBAL_STATE_UPDATE", Tuple.DOWN, AppEdge.ACTUATOR);  // adding edge from Client module to Display (actuator) carrying tuples of type GLOBAL_STATE_UPDATE
-        /*
-         * Defining the input-output relationships (represented by selectivity) of the application modules.
-         */
-        application.addTupleMapping("client", "EEG", "_SENSOR", new FractionalSelectivity(0.9)); // 0.9 tuples of type _SENSOR are emitted by Client module per incoming tuple of type EEG
-        application.addTupleMapping("client", "CONCENTRATION", "SELF_STATE_UPDATE", new FractionalSelectivity(1.0)); // 1.0 tuples of type SELF_STATE_UPDATE are emitted by Client module per incoming tuple of type CONCENTRATION
-        application.addTupleMapping("concentration_calculator", "_SENSOR", "CONCENTRATION", new FractionalSelectivity(1.0)); // 1.0 tuples of type CONCENTRATION are emitted by Concentration Calculator module per incoming tuple of type _SENSOR
-        application.addTupleMapping("client", "GLOBAL_GAME_STATE", "GLOBAL_STATE_UPDATE", new FractionalSelectivity(1.0)); // 1.0 tuples of type GLOBAL_STATE_UPDATE are emitted by Client module per incoming tuple of type GLOBAL_GAME_STATE
-        /*
-         * Defining application loops to monitor the latency of.
-         * Here, we add only one loop for monitoring : EEG(sensor) -> Client -> Concentration Calculator -> Client -> DISPLAY (actuator)
-         */
+
         final AppLoop loop1 = new AppLoop(new ArrayList<String>(){{add("EEG");add("client");add("concentration_calculator");add("client");add("DISPLAY");}});
         List<AppLoop> loops = new ArrayList<AppLoop>(){{add(loop1);}};
         application.setLoops(loops);

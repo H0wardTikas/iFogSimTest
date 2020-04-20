@@ -24,6 +24,26 @@ public class Application {
 	private int userId;
 	private GeoCoverage geoCoverage;
 
+	private Map<Integer, Map<String, Double>> deadlineInfo;
+	private Map<Integer, Map<String, Integer>> additionalMipsInfo;
+
+	private int packageSize;
+	private int instrNum;
+	private double price;
+	private double timeLimit;
+	private double arrivalTime;
+	private boolean placed;
+
+	public Application(String name , int packageSize , int instrNum , double price , double timeLimit , double arrivalTime) {
+		this.appId = name;
+		this.packageSize = packageSize;
+		this.instrNum = instrNum;
+		this.price = price;
+		this.timeLimit = timeLimit;
+		this.arrivalTime = arrivalTime;
+		this.setPlaced(false);
+	}
+
 	/**
 	 * List of application modules in the application
 	 */
@@ -61,12 +81,19 @@ public class Application {
 		long size = 10000;
 		long bw = 1000;
 		String vmm = "Xen";
-		
-		AppModule module = new AppModule(FogUtils.generateEntityId(), moduleName, appId, userId, 
+
+		AppModule module = new AppModule(FogUtils.generateEntityId(), moduleName, appId, userId,
 				mips, ram, bw, size, vmm, new TupleScheduler(mips, 1), new HashMap<Pair<String, String>, SelectivityModel>());
-		
+
 		getModules().add(module);
-		
+
+	}
+
+	public void addAppModule(String moduleName, int ram , int mips , long size , long bw){
+		String vmm = "Xen";
+		AppModule module = new AppModule(FogUtils.generateEntityId(), moduleName, appId, userId,
+				mips, ram, bw, size, vmm, new TupleScheduler(mips, 1), new HashMap<Pair<String, String>, SelectivityModel>());
+		getModules().add(module);
 	}
 	
 	/**
@@ -337,5 +364,48 @@ public class Application {
 
 	public void setEdgeMap(Map<String, AppEdge> edgeMap) {
 		this.edgeMap = edgeMap;
+	}
+
+	public Map<Integer, Map<String, Integer>> getAdditionalMipsInfo() {
+		return additionalMipsInfo;
+	}
+
+	public void setAdditionalMipsInfo(Map<Integer, Map<String, Integer>> additionalMipsInfo) {
+		this.additionalMipsInfo = additionalMipsInfo;
+	}
+
+	public void setDeadlineInfo(Map<Integer, Map<String, Double>> deadlineInfo) {
+		this.deadlineInfo = deadlineInfo;
+	}
+
+	public Map<Integer, Map<String, Double>> getDeadlineInfo() {
+		return deadlineInfo;
+	}
+
+	public int getPackageSize() {
+		return packageSize;
+	}
+
+	public int getInstrNum() {
+		return instrNum;
+	}
+
+	public double getPrice() {
+		return price;
+	}
+
+	public double getTimeLimit() {
+		return timeLimit;
+	}
+
+	public double getArrivalTime() {
+		return arrivalTime;
+	}
+
+	public boolean isPlaced() {
+		return placed;
+	}
+	public void setPlaced(boolean flag) {
+		placed = flag;
 	}
 }

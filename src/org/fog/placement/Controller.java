@@ -285,4 +285,5 @@ public class Controller extends SimEntity{
 	public void setAppModulePlacementPolicy(Map<String, ModulePlacement> appModulePlacementPolicy) {
 		this.appModulePlacementPolicy = appModulePlacementPolicy;
 	}
+
 }

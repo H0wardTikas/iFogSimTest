@@ -478,6 +478,9 @@ public class CloudSim {
 			future.addEvent(evt);
 		}
 		if (e.getId() == -1) { // Only add once!
+			if(entities == null) {
+				return;
+			}
 			int id = entities.size();
 			e.setId(id);
 			entities.add(e);

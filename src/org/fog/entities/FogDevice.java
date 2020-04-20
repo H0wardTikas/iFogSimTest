@@ -25,6 +25,8 @@ import org.fog.utils.*;
  * Created by Z_HAO on 2020/2/12
  */
 public class FogDevice extends PowerDatacenter {
+    private int mips;
+
     protected Queue<Tuple> northTupleQueue;
     protected Queue<Pair<Tuple , Integer>> southTupleQueue;
     protected List<Integer> childrenIds;
@@ -58,6 +60,27 @@ public class FogDevice extends PowerDatacenter {
     protected double totalCost;
     protected Map<String , Map<String , Integer>> moduleInstanceCount;
 
+    protected int bandWidth;
+    protected int rate;
+    protected double costPerSecond;
+    protected double calCost;
+    protected double transCost;
+    protected boolean allocated;
+    protected int cloud;
+    protected double busyTime;
+
+    public void setFogDevice(String name , int bandWidth , int rate , double costPerSecond , double calCost , double transCost ,
+                     boolean allocated , int cloud) throws Exception {
+        this.bandWidth = bandWidth;
+        this.rate = rate;
+        this.costPerSecond = costPerSecond;
+        this.calCost = calCost;
+        this.transCost = transCost;
+        this.allocated = allocated;
+        this.cloud = cloud;
+        busyTime = 0.0;
+    }
+
     /**
      * Instantiates a new datacenter.
      *
@@ -78,9 +101,6 @@ public class FogDevice extends PowerDatacenter {
         setVmList(new ArrayList<Vm>());
         setSchedulingInterval(schedulingInterval);*/
         //在super()中已经存在，不明白为什么要再设置一遍
-        System.out.println("FogDevice(String name , FogDeviceCharacteristics characteristics , VmAllocationPolicy vmAllocationPolicy , List<Storage> storageList ,\n" +
-                "                     double schedulingInterval , double upLinkBandwidth , double downLinkBandwidth , double upLinkLatency , double ratePerMips) throws Exception {\n" +
-                "        super(name , characteristics , vmAllocationPolicy , storageList , schedulingInterval)");
         setUpLinkBandwidth(upLinkBandwidth);
         setDownLinkBandwidth(downLinkBandwidth);
         setUpLinkLatency(upLinkLatency);
@@ -114,9 +134,6 @@ public class FogDevice extends PowerDatacenter {
     public FogDevice(String name , long mips , int ram , double upLinkBandwidth , double downLinkBandwidth ,
                      double ratePerMips , PowerModel powerModel) throws Exception {
         super(name , null , null , new LinkedList<>() , 0);
-        System.out.println("FogDevice(String name , long mips , int ram , double upLinkBandwidth , double downLinkBandwidth ,\n" +
-                "                     double ratePerMips , PowerModel powerModel) throws Exception {\n" +
-                "        super(name , null , null , new LinkedList<>() , 0)");
         List<Pe> peList = new ArrayList<>();
         peList.add(new Pe(0 , new PeProvisionerOverbooking(mips)));
         int hostId = FogUtils.generateEntityId();
@@ -550,57 +567,44 @@ public class FogDevice extends PowerDatacenter {
     protected void processOtherEvent(SimEvent ev) {
         int tag = ev.getTag();
         if(tag == FogEvents.TUPLE_ARRIVAL) {
-            System.out.println("Process tuple arrival");
             processTupleArrival(ev);
         }
         else if(tag == FogEvents.LAUNCH_MODULE) {
-            System.out.println("Process module arrival");
             processModuleArrival(ev);
         }
         else if(tag == FogEvents.RELEASE_OPERATOR) {
-            System.out.println("Process operator release");
             processOperatorRelease(ev);
         }
         else if(tag == FogEvents.SENSOR_JOINED) {
-            System.out.println("Process sensor joining");
             processSensorJoining(ev);
         }
         else if(tag == FogEvents.SEND_PERIODIC_TUPLE) {
-            System.out.println("Send periodic tuple");
             sendPeriodicTuple(ev);//periodic周期的
         }
         else if(tag == FogEvents.APP_SUBMIT) {
-            System.out.println("Process app submit");
             processAppSubmit(ev);
         }
         else if(tag == FogEvents.UPDATE_NORTH_TUPLE_QUEUE) {
-            System.out.println("Update north tuple queue");
             updateNorthTupleQueue(ev);
         }
         else if(tag == FogEvents.UPDATE_SOUTH_TUPLE_QUEUE) {
-            System.out.println("Update south tuple queue");
             updateSouthTupleQueue(ev);
         }
         else if(tag == FogEvents.ACTIVE_APP_UPDATE) {
-            System.out.println("Update active application");
             updateActiveApplication(ev);
         }
         else if(tag == FogEvents.ACTUATOR_JOINED) {
-            System.out.println("Process actuator joined");
             processActuatorJoined(ev);
         }
         else if(tag == FogEvents.LAUNCH_MODULE_INSTANCE) {
-            System.out.println("Update module instance count");
             updateModuleInstanceCount(ev);
         }
         else if(tag == FogEvents.RESOURCE_MGMT) {
-            System.out.println("Manage resource");
             manageResources(ev);
         }
     }
 
     protected double updateCloudetProcessingWithoutSchedulingFutureEventsForce() {
-        System.out.println("Update cloudet processing without scheduling future events force");
         double currentTime = CloudSim.clock();
         double minTime = Double.MAX_VALUE;
         double timeDiff = currentTime - getLastProcessTime();
@@ -670,7 +674,6 @@ public class FogDevice extends PowerDatacenter {
 
 
     protected void checkCloudletCompletion() {
-        System.out.println("Check cloudet completion");
         boolean cloudletCompleted = false;
         List<? extends Host> list = getVmAllocationPolicy().getHostList();
         for (int i = 0; i < list.size(); i++) {
@@ -837,6 +840,43 @@ public class FogDevice extends PowerDatacenter {
     }
     public void setModuleInstanceCount(Map<String, Map<String, Integer>> moduleInstanceCount) {
         this.moduleInstanceCount = moduleInstanceCount;
+    }
+    public int getMips() {
+        return mips;
+    }
+    public void setMips(int mips) {
+        this.mips = mips;
+    }
+    public int getBandWidth() {
+        return bandWidth;
+    }
+    public int getRate() {
+        return rate;
+    }
+
+    public double getCostPerSecond() {
+        return costPerSecond;
+    }
+    public double getTransCost() {
+        return transCost;
+    }
+    public double getCalCost() {
+        return calCost;
+    }
+    public boolean isAllocated() {
+        return allocated;
+    }
+    public int isCloud() {
+        return cloud;
+    }
+    public void setAllocated(boolean flag) {
+        allocated = flag;
+    }
+    public void setBusyTime(double time) {
+        busyTime = time;
+    }
+    public double getBusyTime() {
+        return busyTime;
     }
 }
 
