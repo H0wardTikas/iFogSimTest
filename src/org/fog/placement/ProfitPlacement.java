@@ -35,6 +35,8 @@ public class ProfitPlacement extends ModulePlacement{
     protected Map<Integer, Map<String, Double>> currentModuleLoadMap;
     protected Map<Integer, Map<String, Integer>> currentModuleInstanceNum;
 
+    protected int QoSMeetNumber;
+
     public ProfitPlacement(List<FogDevice> fogDevices, List<Sensor> sensors, List<Actuator> actuators,
                            List<Application> application, ModuleMapping moduleMapping, String moduleToPlace , double time) {
         this.setFogDevices(fogDevices);
@@ -47,6 +49,7 @@ public class ProfitPlacement extends ModulePlacement{
         this.moduleToPlace = moduleToPlace;
         this.deviceMipsInfo = new HashMap<Integer, Integer>();
         this.time = time;
+        QoSMeetNumber = 0;
         mapModules();
     }
 
@@ -56,8 +59,6 @@ public class ProfitPlacement extends ModulePlacement{
         for (FogDevice fogDevice: getFogDevices()) {
             if(!fogDevice.isAllocated()) {
                 Application X = null;
-                double M = Double.MIN_VALUE;
-                double minCharge = Double.MAX_VALUE;
                 double T = Double.MAX_VALUE;
                 double max = 0;
                 for(Application application: getApplications()) {
@@ -71,7 +72,7 @@ public class ProfitPlacement extends ModulePlacement{
                         double cost = fogDevice.getCalCost() * processTime + fogDevice.isCloud() * fogDevice.getTransCost() * propagationTime;
                         double profit = charge - cost;
                         double mrc = profit / epTime;
-                        if(max < mrc) {
+                        if(max < mrc && totalTime <= epTime) {
                             max = mrc;
                             X = application;
                             T = totalTime;
@@ -79,10 +80,11 @@ public class ProfitPlacement extends ModulePlacement{
                     }
                 }
                 if(X != null) {
-                    System.out.println("Assign " + X.getAppId() + " to device: " + fogDevice.getName());
+                    //System.out.println("Assign " + X.getAppId() + " to device: " + fogDevice.getName());
                     X.setPlaced(true);
                     fogDevice.setAllocated(true);
                     fogDevice.setBusyTime(T + time);
+                    QoSMeetNumber ++;
                 }
             }
         }
@@ -195,6 +197,10 @@ public class ProfitPlacement extends ModulePlacement{
 
     public List<Application> getApplications() {
         return this.application;
+    }
+
+    public int getQoSMeetNumber() {
+        return QoSMeetNumber;
     }
 }
 
