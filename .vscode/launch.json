@@ -1,0 +1,539 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Debug (Launch) - Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-FastMath<iFogSimTest>",
+            "request": "launch",
+            "mainClass": "org.apache.commons.math3.util.FastMath",
+            "projectName": "iFogSimTest"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-CloudSimExample1<iFogSimTest>",
+            "request": "launch",
+            "mainClass": "org.cloudbus.cloudsim.examples.CloudSimExample1",
+            "projectName": "iFogSimTest"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-CloudSimExample2<iFogSimTest>",
+            "request": "launch",
+            "mainClass": "org.cloudbus.cloudsim.examples.CloudSimExample2",
+            "projectName": "iFogSimTest"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-CloudSimExample3<iFogSimTest>",
+            "request": "launch",
+            "mainClass": "org.cloudbus.cloudsim.examples.CloudSimExample3",
+            "projectName": "iFogSimTest"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-CloudSimExample4<iFogSimTest>",
+            "request": "launch",
+            "mainClass": "org.cloudbus.cloudsim.examples.CloudSimExample4",
+            "projectName": "iFogSimTest"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-CloudSimExample5<iFogSimTest>",
+            "request": "launch",
+            "mainClass": "org.cloudbus.cloudsim.examples.CloudSimExample5",
+            "projectName": "iFogSimTest"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-CloudSimExample6<iFogSimTest>",
+            "request": "launch",
+            "mainClass": "org.cloudbus.cloudsim.examples.CloudSimExample6",
+            "projectName": "iFogSimTest"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-CloudSimExample7<iFogSimTest>",
+            "request": "launch",
+            "mainClass": "org.cloudbus.cloudsim.examples.CloudSimExample7",
+            "projectName": "iFogSimTest"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-CloudSimExample8<iFogSimTest>",
+            "request": "launch",
+            "mainClass": "org.cloudbus.cloudsim.examples.CloudSimExample8",
+            "projectName": "iFogSimTest"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-NetworkExample1<iFogSimTest>",
+            "request": "launch",
+            "mainClass": "org.cloudbus.cloudsim.examples.network.NetworkExample1",
+            "projectName": "iFogSimTest"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-NetworkExample2<iFogSimTest>",
+            "request": "launch",
+            "mainClass": "org.cloudbus.cloudsim.examples.network.NetworkExample2",
+            "projectName": "iFogSimTest"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-NetworkExample3<iFogSimTest>",
+            "request": "launch",
+            "mainClass": "org.cloudbus.cloudsim.examples.network.NetworkExample3",
+            "projectName": "iFogSimTest"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-NetworkExample4<iFogSimTest>",
+            "request": "launch",
+            "mainClass": "org.cloudbus.cloudsim.examples.network.NetworkExample4",
+            "projectName": "iFogSimTest"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-TestExample<iFogSimTest>",
+            "request": "launch",
+            "mainClass": "org.cloudbus.cloudsim.examples.network.datacenter.TestExample",
+            "projectName": "iFogSimTest"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-Dvfs<iFogSimTest>",
+            "request": "launch",
+            "mainClass": "org.cloudbus.cloudsim.examples.power.planetlab.Dvfs",
+            "projectName": "iFogSimTest"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-IqrMc<iFogSimTest>",
+            "request": "launch",
+            "mainClass": "org.cloudbus.cloudsim.examples.power.planetlab.IqrMc",
+            "projectName": "iFogSimTest"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-IqrMmt<iFogSimTest>",
+            "request": "launch",
+            "mainClass": "org.cloudbus.cloudsim.examples.power.planetlab.IqrMmt",
+            "projectName": "iFogSimTest"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-IqrMu<iFogSimTest>",
+            "request": "launch",
+            "mainClass": "org.cloudbus.cloudsim.examples.power.planetlab.IqrMu",
+            "projectName": "iFogSimTest"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-IqrRs<iFogSimTest>",
+            "request": "launch",
+            "mainClass": "org.cloudbus.cloudsim.examples.power.planetlab.IqrRs",
+            "projectName": "iFogSimTest"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-LrMc<iFogSimTest>",
+            "request": "launch",
+            "mainClass": "org.cloudbus.cloudsim.examples.power.planetlab.LrMc",
+            "projectName": "iFogSimTest"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-LrMmt<iFogSimTest>",
+            "request": "launch",
+            "mainClass": "org.cloudbus.cloudsim.examples.power.planetlab.LrMmt",
+            "projectName": "iFogSimTest"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-LrMu<iFogSimTest>",
+            "request": "launch",
+            "mainClass": "org.cloudbus.cloudsim.examples.power.planetlab.LrMu",
+            "projectName": "iFogSimTest"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-LrRs<iFogSimTest>",
+            "request": "launch",
+            "mainClass": "org.cloudbus.cloudsim.examples.power.planetlab.LrRs",
+            "projectName": "iFogSimTest"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-LrrMc<iFogSimTest>",
+            "request": "launch",
+            "mainClass": "org.cloudbus.cloudsim.examples.power.planetlab.LrrMc",
+            "projectName": "iFogSimTest"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-LrrMmt<iFogSimTest>",
+            "request": "launch",
+            "mainClass": "org.cloudbus.cloudsim.examples.power.planetlab.LrrMmt",
+            "projectName": "iFogSimTest"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-LrrMu<iFogSimTest>",
+            "request": "launch",
+            "mainClass": "org.cloudbus.cloudsim.examples.power.planetlab.LrrMu",
+            "projectName": "iFogSimTest"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-LrrRs<iFogSimTest>",
+            "request": "launch",
+            "mainClass": "org.cloudbus.cloudsim.examples.power.planetlab.LrrRs",
+            "projectName": "iFogSimTest"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-MadMc<iFogSimTest>",
+            "request": "launch",
+            "mainClass": "org.cloudbus.cloudsim.examples.power.planetlab.MadMc",
+            "projectName": "iFogSimTest"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-MadMmt<iFogSimTest>",
+            "request": "launch",
+            "mainClass": "org.cloudbus.cloudsim.examples.power.planetlab.MadMmt",
+            "projectName": "iFogSimTest"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-MadMu<iFogSimTest>",
+            "request": "launch",
+            "mainClass": "org.cloudbus.cloudsim.examples.power.planetlab.MadMu",
+            "projectName": "iFogSimTest"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-MadRs<iFogSimTest>",
+            "request": "launch",
+            "mainClass": "org.cloudbus.cloudsim.examples.power.planetlab.MadRs",
+            "projectName": "iFogSimTest"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-NonPowerAware<iFogSimTest>",
+            "request": "launch",
+            "mainClass": "org.cloudbus.cloudsim.examples.power.planetlab.NonPowerAware",
+            "projectName": "iFogSimTest"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-PlanetLabRunnerConsole<iFogSimTest>",
+            "request": "launch",
+            "mainClass": "org.cloudbus.cloudsim.examples.power.planetlab.PlanetLabRunnerConsole",
+            "projectName": "iFogSimTest"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-ThrMc<iFogSimTest>",
+            "request": "launch",
+            "mainClass": "org.cloudbus.cloudsim.examples.power.planetlab.ThrMc",
+            "projectName": "iFogSimTest"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-ThrMmt<iFogSimTest>",
+            "request": "launch",
+            "mainClass": "org.cloudbus.cloudsim.examples.power.planetlab.ThrMmt",
+            "projectName": "iFogSimTest"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-ThrMu<iFogSimTest>",
+            "request": "launch",
+            "mainClass": "org.cloudbus.cloudsim.examples.power.planetlab.ThrMu",
+            "projectName": "iFogSimTest"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-ThrRs<iFogSimTest>",
+            "request": "launch",
+            "mainClass": "org.cloudbus.cloudsim.examples.power.planetlab.ThrRs",
+            "projectName": "iFogSimTest"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-Dvfs<iFogSimTest>(1)",
+            "request": "launch",
+            "mainClass": "org.cloudbus.cloudsim.examples.power.random.Dvfs",
+            "projectName": "iFogSimTest"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-IqrMc<iFogSimTest>(1)",
+            "request": "launch",
+            "mainClass": "org.cloudbus.cloudsim.examples.power.random.IqrMc",
+            "projectName": "iFogSimTest"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-IqrMmt<iFogSimTest>(1)",
+            "request": "launch",
+            "mainClass": "org.cloudbus.cloudsim.examples.power.random.IqrMmt",
+            "projectName": "iFogSimTest"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-IqrMu<iFogSimTest>(1)",
+            "request": "launch",
+            "mainClass": "org.cloudbus.cloudsim.examples.power.random.IqrMu",
+            "projectName": "iFogSimTest"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-IqrRs<iFogSimTest>(1)",
+            "request": "launch",
+            "mainClass": "org.cloudbus.cloudsim.examples.power.random.IqrRs",
+            "projectName": "iFogSimTest"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-LrMc<iFogSimTest>(1)",
+            "request": "launch",
+            "mainClass": "org.cloudbus.cloudsim.examples.power.random.LrMc",
+            "projectName": "iFogSimTest"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-LrMmt<iFogSimTest>(1)",
+            "request": "launch",
+            "mainClass": "org.cloudbus.cloudsim.examples.power.random.LrMmt",
+            "projectName": "iFogSimTest"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-LrMu<iFogSimTest>(1)",
+            "request": "launch",
+            "mainClass": "org.cloudbus.cloudsim.examples.power.random.LrMu",
+            "projectName": "iFogSimTest"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-LrRs<iFogSimTest>(1)",
+            "request": "launch",
+            "mainClass": "org.cloudbus.cloudsim.examples.power.random.LrRs",
+            "projectName": "iFogSimTest"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-LrrMc<iFogSimTest>(1)",
+            "request": "launch",
+            "mainClass": "org.cloudbus.cloudsim.examples.power.random.LrrMc",
+            "projectName": "iFogSimTest"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-LrrMmt<iFogSimTest>(1)",
+            "request": "launch",
+            "mainClass": "org.cloudbus.cloudsim.examples.power.random.LrrMmt",
+            "projectName": "iFogSimTest"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-LrrMu<iFogSimTest>(1)",
+            "request": "launch",
+            "mainClass": "org.cloudbus.cloudsim.examples.power.random.LrrMu",
+            "projectName": "iFogSimTest"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-LrrRs<iFogSimTest>(1)",
+            "request": "launch",
+            "mainClass": "org.cloudbus.cloudsim.examples.power.random.LrrRs",
+            "projectName": "iFogSimTest"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-MadMc<iFogSimTest>(1)",
+            "request": "launch",
+            "mainClass": "org.cloudbus.cloudsim.examples.power.random.MadMc",
+            "projectName": "iFogSimTest"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-MadMmt<iFogSimTest>(1)",
+            "request": "launch",
+            "mainClass": "org.cloudbus.cloudsim.examples.power.random.MadMmt",
+            "projectName": "iFogSimTest"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-MadMu<iFogSimTest>(1)",
+            "request": "launch",
+            "mainClass": "org.cloudbus.cloudsim.examples.power.random.MadMu",
+            "projectName": "iFogSimTest"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-MadRs<iFogSimTest>(1)",
+            "request": "launch",
+            "mainClass": "org.cloudbus.cloudsim.examples.power.random.MadRs",
+            "projectName": "iFogSimTest"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-NonPowerAware<iFogSimTest>(1)",
+            "request": "launch",
+            "mainClass": "org.cloudbus.cloudsim.examples.power.random.NonPowerAware",
+            "projectName": "iFogSimTest"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-ThrMc<iFogSimTest>(1)",
+            "request": "launch",
+            "mainClass": "org.cloudbus.cloudsim.examples.power.random.ThrMc",
+            "projectName": "iFogSimTest"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-ThrMmt<iFogSimTest>(1)",
+            "request": "launch",
+            "mainClass": "org.cloudbus.cloudsim.examples.power.random.ThrMmt",
+            "projectName": "iFogSimTest"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-ThrMu<iFogSimTest>(1)",
+            "request": "launch",
+            "mainClass": "org.cloudbus.cloudsim.examples.power.random.ThrMu",
+            "projectName": "iFogSimTest"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-ThrRs<iFogSimTest>(1)",
+            "request": "launch",
+            "mainClass": "org.cloudbus.cloudsim.examples.power.random.ThrRs",
+            "projectName": "iFogSimTest"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-SDNExample<iFogSimTest>",
+            "request": "launch",
+            "mainClass": "org.cloudbus.cloudsim.sdn.example.SDNExample",
+            "projectName": "iFogSimTest"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-PhysicalTopologyGenerator<iFogSimTest>",
+            "request": "launch",
+            "mainClass": "org.cloudbus.cloudsim.sdn.example.topogenerators.PhysicalTopologyGenerator",
+            "projectName": "iFogSimTest"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-VMRequestRandomGenerator<iFogSimTest>",
+            "request": "launch",
+            "mainClass": "org.cloudbus.cloudsim.sdn.example.topogenerators.VMRequestRandomGenerator",
+            "projectName": "iFogSimTest"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-VirtualTopologyGeneratorVmTypes<iFogSimTest>",
+            "request": "launch",
+            "mainClass": "org.cloudbus.cloudsim.sdn.example.topogenerators.VirtualTopologyGeneratorVmTypes",
+            "projectName": "iFogSimTest"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-GraphicSDN<iFogSimTest>",
+            "request": "launch",
+            "mainClass": "org.cloudbus.cloudsim.sdn.graph.example.GraphicSDN",
+            "projectName": "iFogSimTest"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-VMRequestGenerator<iFogSimTest>",
+            "request": "launch",
+            "mainClass": "org.cloudbus.cloudsim.sdn.request.VMRequestGenerator",
+            "projectName": "iFogSimTest"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-Check<iFogSimTest>",
+            "request": "launch",
+            "mainClass": "org.cloudbus.cloudsim.util.Check",
+            "projectName": "iFogSimTest"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-TestGUI<iFogSimTest>",
+            "request": "launch",
+            "mainClass": "org.fog.MyFog.TestGUI",
+            "projectName": "iFogSimTest"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-FogGui<iFogSimTest>",
+            "request": "launch",
+            "mainClass": "org.fog.gui.example.FogGui",
+            "projectName": "iFogSimTest"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-TestApplication<iFogSimTest>",
+            "request": "launch",
+            "mainClass": "org.fog.placement.TestApplication",
+            "projectName": "iFogSimTest"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-CleanFromJson<iFogSimTest>",
+            "request": "launch",
+            "mainClass": "org.fog.test.CleanFromJson",
+            "projectName": "iFogSimTest"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-DCNSFog<iFogSimTest>",
+            "request": "launch",
+            "mainClass": "org.fog.test.perfeval.DCNSFog",
+            "projectName": "iFogSimTest"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-ProfitFog<iFogSimTest>",
+            "request": "launch",
+            "mainClass": "org.fog.test.perfeval.ProfitFog",
+            "projectName": "iFogSimTest"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-TestFog<iFogSimTest>",
+            "request": "launch",
+            "mainClass": "org.fog.test.perfeval.TestFog",
+            "projectName": "iFogSimTest"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-TwoApps<iFogSimTest>",
+            "request": "launch",
+            "mainClass": "org.fog.test.perfeval.TwoApps",
+            "projectName": "iFogSimTest"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-VRGameFog<iFogSimTest>",
+            "request": "launch",
+            "mainClass": "org.fog.test.perfeval.VRGameFog",
+            "projectName": "iFogSimTest"
+        }
+    ]
+}
